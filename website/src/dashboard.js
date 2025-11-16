@@ -75,7 +75,6 @@ export default function Dashboard() {
   const [purchaseError, setPurchaseError] = useState("");
   const [purchaseSuccess, setPurchaseSuccess] = useState("");
 
-  const canSubmitPurchase = trust === "high"; // require high trust
 
   const onlyDigits = (s) => s.replace(/\D/g, "");
 
@@ -84,10 +83,6 @@ export default function Dashboard() {
     setPurchaseError("");
     setPurchaseSuccess("");
 
-    if (!canSubmitPurchase) {
-      setPurchaseError("This critical action requires HIGH trust. Access denied.");
-      return;
-    }
 
     const { item, address, card, phone } = purchase;
     if (!item.trim() || !address.trim() || !card.trim() || !phone.trim()) {
@@ -202,8 +197,8 @@ export default function Dashboard() {
               required
             />
 
-            <button className="btn primary" type="submit" disabled={!canSubmitPurchase}>
-              {canSubmitPurchase ? "Submit Purchase (Mock)" : "Restricted: Requires HIGH Trust"}
+            <button className="btn primary" type="submit">
+              {"Submit Purchase (Mock)"}
             </button>
 
             {purchaseError && <div className="error" style={{ marginTop: 8 }}>{purchaseError}</div>}
