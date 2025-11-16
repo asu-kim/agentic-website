@@ -25,6 +25,7 @@ pip install -r requirements.txt
 ```
 cd $ROOT/iotauth
 git submodule update --init --recursive
+git checkout agentic-ai
 git pull
 ```
 
@@ -36,6 +37,8 @@ You need **five** separate terminal windows to run the experiment.
 ```
 # generate entities
 cd $ROOT/iotauth/examples
+./initConfigs.sh
+./cleanAll.sh
 ./generateAll.sh -g configs/agentAccess.graph 
 ```
 
@@ -86,6 +89,10 @@ NODE_OPTIONS="--localstorage-file=/tmp/node-localstorage.json" npm start
 ### Open terminal 5
 ```
 # run agent
+cd $ROOT/agent
 python lowTrustAgent.py --keyId 00000000 --items all # email/phone/address/card/all
 ```
-
+You can save the log using `log.sh`
+```
+./log.sh lowTrustAgent.py --keyId 00000000 --items all # email/phone/address/card/all
+```

@@ -76,6 +76,7 @@ def agent_verify():
     session_key_value = fetch_session_keys(CONFIG_PATH, int(token_id))
     session_key = session_key_value[0]["cipherKey"]
     session_validity = session_key_value[0]["relValidity"]
+    agent_group = session_key_value[0]["owner"]
 
     print(session_key)
     if not session_key:
@@ -94,12 +95,14 @@ def agent_verify():
     if not ok:
         return jsonify(error="verification failed"), 401
     
-    if session_validity >= 7200000:
+    if agent_group == "HighTrustAgents":
         trust_level = "high"
-    elif session_validity >= 3600000:
+    elif agent_group == "MediumTrustAgents":
         trust_level = "medium"
-    else:
+    elif agent_group == "LowTrustAgents":
         trust_level = "low"
+    else:
+        return jsonify(error="Unrecognized agent trust level"), 401
     
     resp_json = {
         "ok": True,
