@@ -29,6 +29,7 @@ def fetch_session_keys(config_path: str, key_id: int):
             "macKey": base64.b64decode(k["macKey_b64"]),        # bytes
             "absValidity": k.get("absValidity"),
             "relValidity": k.get("relValidity"),
+            "owner": k.get("owner"),
         })
     if not session_key_value:
         raise ValueError("Empty session_keys in JSON")
