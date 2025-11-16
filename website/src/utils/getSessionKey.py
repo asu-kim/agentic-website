@@ -14,7 +14,7 @@ def _parse_last_json_line(stdout: str) -> dict:
 
 def fetch_session_keys(config_path: str, key_id: int):
     agent_dir = _abs(os.path.join(here, '../../../iotauth/entity/node/example_entities'))
-    cmd = f'node agent.js {shlex.quote(config_path)} keyId {int(key_id)}'
+    cmd = f'node website.js {shlex.quote(config_path)} keyId {int(key_id)}'
     p = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30, cwd=agent_dir)
     if p.returncode != 0:
         raise RuntimeError(p.stderr.strip() or p.stdout.strip() or "node error")
