@@ -39,7 +39,7 @@ firefox_options.set_preference("intl.accept_languages", "en-US, en")
 
 driver = helium.start_firefox(headless=False, options=firefox_options)
 
-CONFIG_PATH = 'configs/net/lowTrustAgent.config'
+CONFIG_PATH = 'configs/net1/lowTrustAgent.config'
 
 HEX32 = re.compile(r"\b[a-fA-F0-9]{32}\b")
 

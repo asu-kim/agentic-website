@@ -442,18 +442,14 @@ def get_items(item: str) -> str:
 
 
 AGENT_SYSTEM_PROMPT = """
-Rules:
 - Always call the registered tools functions directly.
 - Print each steps' description.
 - Do NOT invent or assume any functions that are not in the registered tool list.
-- Combine all steps into a single valid Python code block enclosed by <code> ... </code>.
-- The code block must contain only executable Python code — **no natural language sentences, explanations, or comments written in prose.**
-- Natural-language explanations or reasoning belong outside the <code> block and Executing parsed code.
-- Use only valid Python syntax inside the <code> block and Executing parsed code.
 - The code must run without syntax errors.
 - The final line must call final_answer(items_json).
 - Do not process the session_key and nonce. Use raw value of session_key and nonce.
-
+- Use the tools directly as normal Python functions.
+- If get_session_key() times out or raises an exception, handle it in Python and then call final_answer(...) to report the issue.
 """
 
 def build_agent():
