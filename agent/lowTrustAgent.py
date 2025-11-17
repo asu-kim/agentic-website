@@ -442,25 +442,14 @@ def get_items(item: str) -> str:
 
 
 AGENT_SYSTEM_PROMPT = """
-Your response rules:
-- Your ENTIRE reply must be a single <code>...</code> block and NOTHING else.
-- Do NOT write any text, explanations, or analysis outside the <code> block.
-- Inside <code>...</code>, write ONLY valid, executable Python 3 code.
-- Do NOT write comments (no lines starting with #) or docstrings.
-- You MAY use print() to show step descriptions (e.g., print("Step 1: ...")), because those are executable code.
-- Do NOT use Markdown backticks. Only use <code> and </code> once around the whole code.
-
-Tool rules:
-- You may ONLY call the registered tool functions (no invented functions).
-- Use the tools directly as normal Python functions.
-- Do not process or transform session_key or nonce; pass their raw values directly to hmac_sha256_hex.
-- If get_session_key() times out or raises an exception, handle it in Python and then call final_answer(...) to report the issue.
-
-Structure rules:
-- Combine all logic into a single Python script inside one <code>...</code> block.
+- Always call the registered tools functions directly.
+- Print each steps' description.
+- Do NOT invent or assume any functions that are not in the registered tool list.
 - The code must run without syntax errors.
-- Print a short description before each major step using print().
-- At the end of the script, you MUST call final_answer(items_json).
+- The final line must call final_answer(items_json).
+- Do not process the session_key and nonce. Use raw value of session_key and nonce.
+- Use the tools directly as normal Python functions.
+- If get_session_key() times out or raises an exception, handle it in Python and then call final_answer(...) to report the issue.
 """
 
 
