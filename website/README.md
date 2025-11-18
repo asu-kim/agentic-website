@@ -94,5 +94,6 @@ python lowTrustAgent.py --keyId 00000000 --items all # email/phone/address/card/
 ```
 You can save the log using `log.sh`
 ```
+export LOG_DIR="directory path to save logs"
 ./log.sh lowTrustAgent.py --keyId 00000000 --items all # email/phone/address/card/all
 ```

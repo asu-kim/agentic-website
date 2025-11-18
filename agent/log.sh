@@ -1,9 +1,8 @@
 #!/bin/bash 
 
 
-
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-DIR="/home/skim638/agentic-website/agent/log"
+DIR="$LOG_DIR/agentic-website/agent/log"
 LOG="$DIR/log_$@.txt"
 start=$(date +%s%N)
 
