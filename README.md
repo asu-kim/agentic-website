@@ -10,11 +10,12 @@ This repository provides the website implementation accompanying our case study 
   - generating session keys for delegated access
   - validating ownership through ExpectedOwnerGroups
   - enforcing trust-level–dependent validity periods
-- **website**: Directory for access-controlled website.  
+- **website**: Directory for an access-controlled website.  
   The system is composed of:
   - a **React front-end** (JavaScript) used by both human users and agents,
   - a **Python Flask back-end** that enforces delegated access control, performs HMAC verification, and interfaces with Auth,
   - and routes for login, HMAC authentication, and scoped data retrieval.
+
 Detailed instructions for running the website and reproducing our experiments can be found in  **[`website/README.md`](https://github.com/asu-kim/agentic-website/tree/main/website/README.md)**.
 
 # Contributors
