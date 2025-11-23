@@ -1,8 +1,8 @@
 #!/bin/bash 
-
+# Use this script to log agent.py's output and execution latency. 
 
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-DIR="$LOG_DIR/agentic-website/agent/log"
+DIR="$ROOT/agent/log"
 LOG="$DIR/log_$@.txt"
 start=$(date +%s%N)
 

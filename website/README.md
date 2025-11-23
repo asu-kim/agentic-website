@@ -4,6 +4,10 @@
 
 1) Inside the project's `$ROOT` directory, set up a virtual environment.
 
+```
+export ROOT="/Users/<username>/agentic-website"
+```
+
     macOS or Linux
     ```
     python3 -m venv .venv
@@ -33,7 +37,7 @@ git pull
 
 You need **five** separate terminal windows to run the experiment.
 
-### Open terminal 1
+### 2.1 Open terminal 1
 ```
 # generate entities
 cd $ROOT/iotauth/examples
@@ -49,7 +53,7 @@ make
 java -jar target/auth-server-jar-with-dependencies.jar -p ../properties/exampleAuth101.properties
 ```
 
-### Open terminal 2
+### 2.2 Open terminal 2
 ```
 # generate key for delegate access to agent
 cd $ROOT/iotauth/entity/node/example_entities
@@ -63,13 +67,13 @@ delegateAccess <trust_level>
 ```
 Terminate the program after checking the `sessionKeyID`.
 
-### Open terminal 3
+### 2.3 Open terminal 3
 ```
 cd $ROOT/website
 python3 app.py  # py app.py for window
 ```
 
-### Open terminal 4
+### 2.4 Open terminal 4
 ```
 # install dependencies
 cd $ROOT/website
@@ -86,7 +90,7 @@ If you get `SecurityError: Cannot initialize local storage without a --localstor
 NODE_OPTIONS="--localstorage-file=/tmp/node-localstorage.json" npm start
 ```
 
-### Open terminal 5
+### 2.5 Open terminal 5
 ```
 # run agent
 cd $ROOT/agent
@@ -94,6 +98,5 @@ python lowTrustAgent.py --keyId 00000000 --items all # email/phone/address/card/
 ```
 You can save the log using `log.sh`
 ```
-export LOG_DIR="directory path to save logs"
 ./log.sh lowTrustAgent.py --keyId 00000000 --items all # email/phone/address/card/all
 ```
