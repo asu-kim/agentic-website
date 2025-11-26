@@ -29,7 +29,6 @@ pip install -r requirements.txt
 ```
 cd $ROOT/iotauth
 git submodule update --init --recursive
-git checkout agentic-ai
 git pull
 ```
 
