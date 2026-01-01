@@ -68,8 +68,8 @@ Terminate the program after checking the `sessionKeyID`.
 
 ### 2.3 Open terminal 3
 ```
-cd $ROOT/website
-python3 app.py  # py app.py for window
+cd $ROOT/website/src
+python3 app.py  # py app.py for Windows
 ```
 
 ### 2.4 Open terminal 4
