@@ -1,3 +1,10 @@
 flask
 flask_cors
 cryptography
+Pillow
+python-dotenv
+helium
+smolagents
+transformers
+torch
+accelerate
